@@ -113,17 +113,28 @@ public class SampleResultPointProvider {
                 .addTag(RequestMeasurement.Tags.TEST_NAME, this.sampleResultContext.getTestName())
                 .addTag(RequestMeasurement.Tags.NODE_NAME, this.sampleResultContext.getNodeName())
                 .addTag(RequestMeasurement.Tags.RESULT_CODE, this.sampleResultContext.getSampleResult().getResponseCode())
+                .addTag(RequestMeasurement.Tags.RESPONSE_MESSAGE, this.sampleResultContext.getSampleResult().getResponseMessage())
                 .addTag(RequestMeasurement.Tags.ERROR_MSG, this.getAssertionFailure())
                 .addTag(RequestMeasurement.Tags.SAMPLE_TYPE, this.sampleResultContext.getSamplerType())
                 .addTag(RequestMeasurement.Tags.ERROR_RESPONSE_BODY, this.getErrorBodyToBeSaved(this.sampleResultContext.isErrorBodyToBeSaved(), !this.sampleResultContext.getSampleResult().isSuccessful()))
+                .addTag(RequestMeasurement.Tags.PARENT, this.sampleResultContext.getSampleResult().getParent().getSampleLabel())
+                .addTag(RequestMeasurement.Tags.URL, this.sampleResultContext.getSampleResult().getUrlAsString())
+                .addTag(RequestMeasurement.Tags.THREAD_NAME, this.sampleResultContext.getSampleResult().getThreadName())
+                .addTag(RequestMeasurement.Tags.DATA_TYPE, this.sampleResultContext.getSampleResult().getDataType())
+                .addTag(RequestMeasurement.Tags.SUCCESS, String.valueOf(this.sampleResultContext.getSampleResult().isSuccessful()))
+                .addTag(RequestMeasurement.Tags.FAILURE_MESSAGE, String.valueOf(this.sampleResultContext.getSampleResult().getFirstAssertionFailureMessage()))
                 .addField(RequestMeasurement.Fields.ERROR_COUNT, this.sampleResultContext.getSampleResult().getErrorCount())
                 .addField(RequestMeasurement.Fields.REQUEST_COUNT, this.sampleResultContext.getSampleResult().getSampleCount())
                 .addField(RequestMeasurement.Fields.RECEIVED_BYTES, this.sampleResultContext.getSampleResult().getBytesAsLong())
                 .addField(RequestMeasurement.Fields.SENT_BYTES, this.sampleResultContext.getSampleResult().getSentBytes())
+                .addField(RequestMeasurement.Fields.GROUP_THREADS, this.sampleResultContext.getSampleResult().getGroupThreads())
+                .addField(RequestMeasurement.Fields.ALL_THREADS, this.sampleResultContext.getSampleResult().getAllThreads())
                 .addField(RequestMeasurement.Fields.RESPONSE_TIME, this.sampleResultContext.getSampleResult().getTime())
                 .addField(RequestMeasurement.Fields.LATENCY, this.sampleResultContext.getSampleResult().getLatency())
                 .addField(RequestMeasurement.Fields.CONNECT_TIME, this.sampleResultContext.getSampleResult().getConnectTime())
+                .addField(RequestMeasurement.Fields.IDLE_TIME, this.sampleResultContext.getSampleResult().getIdleTime())
                 .addField(RequestMeasurement.Fields.PROCESSING_TIME, this.sampleResultContext.getSampleResult().getLatency() - this.sampleResultContext.getSampleResult().getConnectTime());
 
     }
+
 }

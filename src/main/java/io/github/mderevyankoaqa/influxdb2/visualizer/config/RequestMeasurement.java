@@ -63,6 +63,38 @@ public interface RequestMeasurement {
 		 * sampleType represents the type of sample, whether it is a request or a transaction controller.
 		 */
 		String SAMPLE_TYPE = "samplerType";
+
+		/**
+		 * Parent Label
+		 */
+
+		String PARENT = "parent";
+
+		/**
+		 * Response message field.
+		 */
+		String RESPONSE_MESSAGE = "responseMessage";
+
+		/**
+		 * Thread Name
+		 */
+		String THREAD_NAME = "threadName";
+		/**
+		 * Data type
+		 */
+		String DATA_TYPE = "dataType";
+		/**
+		 * Success of sample
+		 */
+		String SUCCESS = "success";
+		/**
+		 * Failure message
+		 */
+		String FAILURE_MESSAGE = "failureMessage";
+		/**
+		 * URL
+		 */
+		String URL = "URL";
 	}
 
 	/**
@@ -110,5 +142,21 @@ public interface RequestMeasurement {
 		 * Processing Time field.
 		 */
 		String PROCESSING_TIME = "processingTime";
+
+		/**
+		 * Idle Time
+		 */
+		String IDLE_TIME = "IdleTime";
+
+		/**
+		 * Group Threads
+		 */
+		String GROUP_THREADS = "grpThreads";
+		/**
+		 * All Threads
+		 */
+		String ALL_THREADS = "allThreads";
+
 	}
+
 }
